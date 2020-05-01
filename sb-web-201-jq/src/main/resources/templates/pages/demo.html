@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+function addTab(title, url){  
+    if ($('#tt').tabs('exists', title)){  
+        $('#tt').tabs('select', title);  
+    } else {  
+        //iframe标签,页面中的页面
+        var content = '<iframe scrolling="auto" frameborder="0"  src="https://www.baidu.com" style="width:100%;height:100%;"></iframe>';  
+        $('#tt').tabs('add',{  
+            title:title,  
+            content:content,  
+            closable:true  
+        });  
+    }  
+} 
+
+</script>
+
+<body>
+<div>
+<ul class="easyui-tree">
+  	
+  	<li>
+  	<span >商品管理</span>
+	  	<ul>
+	  		<li>商品查询</li>
+	  		<li>商品新增</li>
+	  		<li>
+	  			<span>商品管理</span>
+
+	  			<ul>
+	  				<li>一</li>
+	  				<li>二</li>
+	  				<li>三</li>
+	  			</ul>
+	  		</li>
+	  	</ul>
+</ul>
+</div>
+
+<ul class="easyui-tree">
+  	
+  	<li>
+  	<span>商品管理</span>
+	  	<ul>
+	  		<li>商品查询</li>
+	  		<li>商品新增</li>
+	  		<li>
+	  			<span>商品管理</span>
+
+	  			<ul>
+	  				<li>一</li>
+	  				<li>二</li>
+	  				<li>三</li>
+	  			</ul>
+	  		</li>
+	  	</ul>
+</ul>
+</body>
+</html>

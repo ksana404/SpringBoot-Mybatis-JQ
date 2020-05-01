@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>展示用户 </title>
+
+<!-- 
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+
+<script src="../../static/jquery-3.4.1/jquery-3.4.1.js" ></script>
+
+<script src="jquery-3.4.1/jquery-3.4.1.js" ></script>
+
+ -->
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+
+$(function (){
+	alert(" $   页面加载完成自动执行 里面的代码");
+});
+
+$(document).ready(function (){
+	alert("   document 更快 页面加载完成自动执行 里面的代码");
+});
+
+//为按钮点击事件 就绪
+$(document).ready(function(){
+	
+	$("#buttonID").click(function(){
+		// 使用ajax 发送get 请求 
+		   $.getJSON("find",function(result){
+			   //结果处理调用
+			   doHandleResponseResult(result);
+		   });
+	});
+	
+	alert(500);
+});
+
+//定义结果处理
+function doHandleResponseResult(result){
+	   if(result.state==1){
+		 //调用 绘制 出 行和列
+		  doSetTableBodyRows(result.data);
+		 //
+		  alert(result.state);
+		  
+		}else{
+		  alert(result.message);
+	   }
+}
+
+
+	
+	
+
+//通过服务端返回的数据初始化页面
+function doSetTableBodyRows(data){
+	debugger
+	  //1.获取tbody对象，并清空内容
+	  var tBody=$("#tbodyId");
+	  tBody.empty();
+	  //2.迭代data内容将数据追加到tbody中
+	  for(var i in data){
+		  var tr=$("<tr></tr>");
+		  tr.data("rowData",data[i]);
+		  var tds=doCreateTds(data[i]);
+		  tr.append(tds);
+		  tBody.append(tr);
+	  }
+}
+function doCreateTds(row){
+	   console.log(row);
+	   var tds="<td><input type='radio' name='radioId' value='"+row.id+"' ></td>"+
+	     "<td>"+row.name+"</td>"+
+	     "<td>"+row.age+"</td>"+
+	     "<td>"+row.sex+"</td>"+
+	     "<td>"+new Date(row.createdTime).toLocaleString()+"</td>"+
+	     "<td>"+new Date(row.modifiedTime).toLocaleString()+"</td>";
+    return tds;
+}
+
+
+</script>
+
+</head>
+<body>
+<button id="buttonID" type="button" >添加用户</button>
+
+	<div >
+				<table >
+					<thead>
+						<tr>
+							<th>选择</th>
+							<th>ID</th>
+							<th>用户名</th>
+							<th>年龄</th>
+							<th>性别</th>
+							<th>修改时间</th>
+							<th>创建时间</th>
+							
+						</tr>
+					</thead>
+					<tbody id="tbodyId"></tbody>
+				</table>
+			</div>
+			<div id="pageId" >
+			</div>
+			<!-- /.box-body -->
+	
+</body>
+</html>

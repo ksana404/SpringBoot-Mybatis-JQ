@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 引入函数库 -->
+<!-- 
+<script type="text/javascript" src="../jquery-3.4.1/jquery-3.4.1.js" ></script>
+ -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+/*** 发起ajax请求 ***/
+ $(function(){
+	 //初始化表格信息    //listUser
+	 $.get("ajax_user",function(result){
+		 var trs;
+		//index代表下标  obj 当前遍历对象  
+		//user 代表 遍历的对象 从result (List<user>)中取出来的
+		$(result).each(function(index,user){
+			var id =user.id;
+			var name =user.name;
+			var age =user.age;
+			var sex =user.sex;
+			
+			//这一步 是在表格 拼接 列
+trs += "<tr align='center'><td>"+id+"</td><td>"+name+"</td><td>"+age+"</td><td>"+sex+"</td></tr>";
+			
+		});
+		//这一步 是在表格 拼接 行
+		$("#tableId").append(trs);
+		 
+	 });
+	 
+	 
+	 
+ });
+
+</script>
+
+
+</head>
+<body>
+<!-- 制作一个表格  表格ID border边框    width 占比(上一个元素body)  align 对齐方式 居中 -->
+<table id="tableId" border="2px" width="60%" align="center" >
+<tr>
+	<td colspan="10" align="center"><h2>同学信息</h2> </td>
+</tr>
+<tr>
+<th>编号</th>
+<th>姓名</th>
+<th>年龄</th>
+<th>性别</th>
+<th></th>
+</tr>
+
+</table>
+
+</body>
+</html>

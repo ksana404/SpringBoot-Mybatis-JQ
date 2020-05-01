@@ -1,0 +1,43 @@
+
+jq引用 使用
+	1.在文件中引用
+	
+有待学习
+	
+	2.通过 CDN（内容分发网络） 引用它
+	---------------------->>>
+
+官方压缩引用：
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+	
+Staticfile CDN:
+<head>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+</head>
+
+百度 CDN:
+<head>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+</script>
+</head>
+
+
+又拍云 CDN:
+<head>
+<script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js">
+</script>
+</head>
+
+尝试一下 »
+
+新浪 CDN:
+<head>
+<script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js">
+</script>
+</head>
+
+
+	>>>>----------------------
